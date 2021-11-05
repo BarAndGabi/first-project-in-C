@@ -24,6 +24,7 @@ void	printCharArray(const char* arr, int size)
 	}
 
 	printf("\n");
+//gabi is gay
 }
 
 void	initArray(int* arr, int size)
