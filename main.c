@@ -1,4 +1,18 @@
+#include <stdio.h>
 #include "exe.h"
+
+void menuAndChoise( char* cP)
+{
+	printf("Choose one of the folloeing options : \n");
+	printf("S/s- Biggest Matrix Sum\n");
+	printf("C/c- Color Game\n");
+	printf("B/b- Black and White Game\n");
+	printf("E/e- Exit");
+	scanf("%c",cP);
+	
+
+	
+}
 
 int  main()
 {
@@ -6,23 +20,18 @@ int  main()
 	menuAndChoise(&choise);
 	switch(choise)
 	{
-		case 'S','s':
+		case 'S' :
 		break;
-		case 'C','c':
+		case 'C':
 		break;
-		case 'B','B':
+		case 'B':
 		break;
-		case 'E','e':
+		case 'E':
+		break;
+		default:
 		break;
 
 	}
-
-	
 }
 
-void menuAndChoise( char* cP)
-{
-	printf("Choose one of the folloeing options : \nS/s- Biggest Matrix Sum\nC/c- Color Game\nB/b- Black and White Game\nE/e- Exit");
-	scanf("%c",cP);
-	if(
-}
+

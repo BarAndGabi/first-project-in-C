@@ -1,10 +1,10 @@
-#ifndef __ARRAYS__
-#define __ARRAYS__
+#ifndef __UTILL__
+#define __UTILL__
 
 
 
-#endif
-tArray(const int* arr, int size);
+
+void	printArray(const int* arr, int size);
 void	initArray(int* arr, int size);
 void	printMat(const int* mat, int rows, int cols);
 void	initMat(int* mat, int rows, int cols);
