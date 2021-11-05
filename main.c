@@ -6,6 +6,14 @@ int  main()
 	menuAndChoise(&choise);
 	switch(choise)
 	{
+		case 'S','s':
+		break;
+		case 'C','c':
+		break;
+		case 'B','B':
+		break;
+		case 'E','e':
+		break;
 
 	}
 

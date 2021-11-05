@@ -101,7 +101,7 @@ void	initMatChar(char* mat, int rows, int cols)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			scanf("%d", mat);
+			scanf("%c", mat);
 			mat++;
 		}
 	}
@@ -109,7 +109,10 @@ void	initMatChar(char* mat, int rows, int cols)
 
 
 
-id 	printArrayRevers_Offset(const int* arr, int size)
+
+
+
+	printArrayRevers_Offset(const int* arr, int size)
 {
 	int i;
 	for (i = 0; i < size; i++)
