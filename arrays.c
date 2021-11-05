@@ -110,24 +110,4 @@ void	initMatChar(char* mat, int rows, int cols)
 
 
 
-/*
 
-	printArrayRevers_Offset(const int* arr, int size)
-{
-	int i;
-	for (i = 0; i < size; i++)
-		printf("%5d", *(arr+size-i-1));
-}
-
-void 	printArrayRevers_WP(const int* arr, int size)
-{
-	int i;
-	const int* end = arr+size-1;
-	for (i = 0; i < size; i++)
-	{
-		printf("%5d", *end);
-		end--;
-	}
-}
-
-*/
