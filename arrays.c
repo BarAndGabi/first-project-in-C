@@ -24,9 +24,8 @@ void	printCharArray(const char* arr, int size)
 	}
 
 	printf("\n");
-//gabi is gay
-}
 
+}
 void	initArray(int* arr, int size)
 {
 	int i;
@@ -34,6 +33,17 @@ void	initArray(int* arr, int size)
 	for (i = 0; i < size; i++)
 	{
 		scanf("%d", arr);
+		arr++;
+	}
+}
+ 
+void	initArrayChar(char* arr, int size)
+{
+	int i;
+	printf("Please enter %d elements for array\n", size);
+	for (i = 0; i < size; i++)
+	{
+		scanf("%c", arr);
 		arr++;
 	}
 }
@@ -53,8 +63,36 @@ void	printMat(const int* mat, int rows, int cols)
 	}
 	printf("\n");
 }
+void	printMatChar(const char* mat, int rows, int cols)
+{
+	int i, j;
+	for (i = 0; i < rows; i++)
+	{
+		for (j = 0; j < cols; j++)
+		{
+			printf("%5c", *mat);
+			mat++;
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
 
 void	initMat(int* mat, int rows, int cols)
+{
+	int i, j;
+
+	printf("Please enter %d numbers to matrix\n", cols*rows);
+	for (i = 0; i < rows; i++)
+	{
+		for (j = 0; j < cols; j++)
+		{
+			scanf("%d", mat);
+			mat++;
+		}
+	}
+}
+void	initMatChar(char* mat, int rows, int cols)
 {
 	int i, j;
 
