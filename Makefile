@@ -1,6 +1,6 @@
 CC=gcc
-OBJS=arrays.o functions4.o exe.o  main.o
-EXEC=lab4
+OBJS=arrays.o Solution1.o exe.o  main.o Utill.o
+EXEC=prog
 DEBUG = -g
 CFLAGS = -std=c99  -Wall -Werror $(DEBUG)
 
@@ -9,9 +9,10 @@ $(EXEC) : $(OBJS)
 
 
 arrays.o: arrays.c arrays.h
-functions4.o: functions4.c functions4.h
-exe.o: exe.c arrays.h functions4.h exe.h
+Solution1.o: Solution1.c Solution1.h Utill.h arrays.h
+exe.o: exe.c arrays.h Solution1.h exe.h Utill.h
 main.o: main.c exe.h
+Utill.o:Utill.h Utill.c 
 
 clean: 
 	rm -f $(EXEC) $(OBJS)
