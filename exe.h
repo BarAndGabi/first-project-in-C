@@ -1,7 +1,9 @@
 #ifndef EXE_H_
 #define EXE_H_
 
-void q_ReverseArr();
+
+#endif
+everseArr();
 void q_PrintMat();
 void q_PrintArrReverse();
 void q_PrintMixMatrix();

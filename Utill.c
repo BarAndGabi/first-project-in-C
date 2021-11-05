@@ -3,7 +3,11 @@
 
 #include "arrays.h"
  
-void	printArray(const int* arr, int size)
+
+ 
+
+
+printArray(const int* arr, int size)
 {
 	int i;
 	for (i = 0; i < size; i++)

@@ -10,7 +10,10 @@
 #define COLS 3
 
 
-void q_ReverseArr()
+
+
+
+d q_ReverseArr()
 {
 	int Arr[SIZE];	//Declare an array
 
