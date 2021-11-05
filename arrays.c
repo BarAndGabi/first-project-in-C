@@ -107,7 +107,9 @@ void	initMatChar(char* mat, int rows, int cols)
 	}
 }
 
-void 	printArrayRevers_Offset(const int* arr, int size)
+
+
+id 	printArrayRevers_Offset(const int* arr, int size)
 {
 	int i;
 	for (i = 0; i < size; i++)
