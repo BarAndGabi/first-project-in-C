@@ -12,9 +12,9 @@
 
 void q1()
 {
-	int a[3][3] ={{13,-47,36},{-46,50,50},{4,50,49}};
-	sumMat(a, 2, 2);
-	int rowBM,colBM,rowSM,colSMl;
+	int a[3][3] ={{1,-1,36},{1,1,50},{4,50,49}};
+	int sum=sumMat((int*)a, 2, 2,3);
+	/*int rowBM,colBM,rowSM,colSMl;
 	printf("you chose Q1, get ready to be amazed\n");
 	printf("you need to tell me how many rows and cols you would like:  \n");
 	printf("ROWS:	");
@@ -25,7 +25,8 @@ void q1()
 	printf("ROWS:	");
 	scanf("%d",rowSM);
 	printf("COLS:	");
-	scanf("%d",colSM);
+	scanf("%d",colSM);*/
+	printf("%d",sum);
 		
 }
 
