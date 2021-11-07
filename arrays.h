@@ -9,6 +9,8 @@ void	printArrayChar(const char* arr, int size);
 void	initArrayChar(char* arr, int size);
 void	printMatChar(const char* mat, int rows, int cols);
 void	initMatChar(char* mat, int rows, int cols);
+void	initArratRand(int* arr, int size);
+int	sumMat(int* mat, int rows, int cols);
 
 
 #endif

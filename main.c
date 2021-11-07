@@ -40,7 +40,7 @@ int  main()
 			q3();
 		break;
 		case 'E':
-			printf("\nOkay , bye \n");
+			printf("\nOkay  , bye \n");
 		break;
 		default:
 			printf("\nTry again, wrong input\n");
