@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
-
+#include <stdlib.h>
+#include <time.h>   
 #include "arrays.h"
  
 void	printArray(const int* arr, int size)
@@ -36,16 +37,7 @@ void	initArray(int* arr, int size)
 		arr++;
 	}
 }
- void	initArratRand(int* arr, int size)
-{
-	int i;
-	printf("Please enter %d elements for array\n", size);
-	for (i = 0; i < size; i++)
-	{
-		scanf("%d", arr);
-		arr++;
-	}
-}
+ 
 void	initArrayChar(char* arr, int size)
 {
 	int i;
@@ -101,6 +93,20 @@ void	initMat(int* mat, int rows, int cols)
 		}
 	}
 }
+void	initMatRand(int* mat, int rows, int cols)
+{
+	int i, j;
+	srand ( time(NULL) ); // initialize random seed
+	printf("Please enter %d numbers to matrix\n", cols*rows);
+	for (i = 0; i < rows; i++)
+	{
+		for (j = 0; j < cols; j++)
+		{
+			*mat=-20 + (rand()%(20-(-20)+1));
+			mat++;
+		}
+	}
+}
 void	initMatChar(char* mat, int rows, int cols)
 {
 	int i, j;
@@ -125,8 +131,7 @@ int	sumSmallMat(int* mat, int rows, int cols,int bigRows)
 		temp=*((mat+(bigRows*i)+j));
 		sum=sum+temp;	
 		}
-	printf("\n\nthe answer:	%d \n",sum);
-return 0;
+	return sum;
 }
 
 
