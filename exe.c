@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include "arrays.h"
 #include "Solution1.h"
+#include "Solution2.h"
+#include "Solution3.h"
 #include "Utill.h"
 #include "exe.h"
 
