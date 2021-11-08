@@ -106,6 +106,19 @@ void	initMatRand(int* mat, int rows, int cols)
 		}
 	}
 }
+void	initMatZero(int* mat, int rows, int cols)
+{
+	int i, j;
+	srand ( time(NULL) ); // initialize random seed
+	for (i = 0; i < rows; i++)
+	{
+		for (j = 0; j < cols; j++)
+		{
+			*mat=0;
+			mat++;
+		}
+	}
+}
 void	initMatChar(char* mat, int rows, int cols)
 {
 	int i, j;

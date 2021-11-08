@@ -49,7 +49,7 @@ int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
 }
 void q1()
 {
-	//int answerROW,answerCOL;
+	//Solution1.h
 	int sum=0;
 	printf("you chose Q1, get ready to be amazed\n");
 	int rowBM,colBM,rowSM,colSM;
@@ -67,11 +67,13 @@ void q1()
 
 void q2()
 {
+	//Solution2.h
 	printf("you chose Q2, your'e about to be sent to outter space\n");	
 }
 
 void q3()
 {
+	//Solution3.h
 	printf("houston we have a problem  the user chose Q3\n");	
 }
 
