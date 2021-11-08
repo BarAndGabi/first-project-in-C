@@ -26,7 +26,8 @@ int bigMatChoose(int* rowBM,int* colBM)
 		printf(" rows to big, try again\n");
 		return -1;
 	}
-	printf("Your big mat portion: rows_%d,cols_%d \n",rowBM,colBM);
+	printf("Your big mat portion: rows_%d,cols_%d \n",*rowBM,*colBM);
+return 0;
 	
 }
 int smallMatChoose(int* rowBM,int* colBM,int* rowSM,int* colSM)
@@ -47,18 +48,18 @@ int smallMatChoose(int* rowBM,int* colBM,int* rowSM,int* colSM)
 		printf("small cols to big, try again\n");
 		return -1;
 	}
-	printf("Your SMALL mat portion: rows_%d,cols_%d \n",rowSM,colSM);
+	printf("Your SMALL mat portion: rows_%d,cols_%d \n",*rowSM,*colSM);
+return 0;
 	
 }
 int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
 {
-	printf("Mat portion: rows_%d,cols_%d \n",ROWS,COLS);
+
 	if(bigMatChoose( rowBM,colBM)==-1)
 		return-1;
 	if(smallMatChoose( rowBM,colBM,rowSM,colSM)==-1)
 		return-1;
-	
-	printf("Your SMALL mat portion: rows_%d,cols_%d \n",rowSM,colSM);
+
 	return 0;
 	
 }
@@ -67,6 +68,7 @@ void q1()
 	//Solution1.h
 	int sum=0;
 	printf("you chose Q1, get ready to be amazed\n");
+	printf("Mat portion: rows_%d,cols_%d \n",ROWS,COLS);
 	int rowBM,colBM,rowSM,colSM;
 	while(q1Menu(&rowBM,&colBM,&rowSM,&colSM)==-1)
 {
