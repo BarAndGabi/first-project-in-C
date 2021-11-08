@@ -24,12 +24,17 @@ printf("you need to tell me how many rows and cols you would like:  \n");
 }
 void q1()
 {
+	int answerROW,answerCOL;
+	int sum=0;
 	printf("you chose Q1, get ready to be amazed\n");
 	int rowBM,colBM,rowSM,colSM;
 	q1Menu(&rowBM,&colBM,&rowSM,&colSM);
 	int mat[rowBM][colBM];
 	initMatRand((int*) mat,  rowBM,  colBM);
-	printMat((int*) mat,  rowBM,  colBM);	
+	printf("the big mat:    \n");
+	printMat((int*) mat,  rowBM,  colBM);
+	sum=Q1_doFindMaxSubMatrix((int*) mat, rowBM, colBM, rowSM, colSM,&answerROW,&answerCOL);
+	printf("\n the sum is :   %d  \n",sum);	
 		
 }
 

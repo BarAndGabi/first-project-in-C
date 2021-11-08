@@ -97,12 +97,11 @@ void	initMatRand(int* mat, int rows, int cols)
 {
 	int i, j;
 	srand ( time(NULL) ); // initialize random seed
-	printf("Please enter %d numbers to matrix\n", cols*rows);
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat=-20 + (rand()%(20-(-20)+1));
+			*mat=1 + (rand()%(5-(1)+1));
 			mat++;
 		}
 	}
