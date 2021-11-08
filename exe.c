@@ -9,10 +9,8 @@
 
 #define ROWS 5
 #define COLS 5
-
-int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
+int bigMatChoose(int* rowBM,int* colBM)
 {
-	
 	printf("you need to tell me how many rows and cols you would like:  \n");
 	printf("ROWS:	");
 	scanf("%d",rowBM);
@@ -28,6 +26,11 @@ int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
 		printf(" rows to big, try again\n");
 		return -1;
 	}
+	printf("Your big mat portion: rows_%d,cols_%d \n",rowBM,colBM);
+	
+}
+int smallMatChoose(int* rowBM,int* colBM,int* rowSM,int* colSM)
+{
 	printf("Now tell me the portion of the small mat you would like:  \n");
 	printf("ROWS:	");
 	scanf("%d",rowSM);
@@ -44,6 +47,18 @@ int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
 		printf("small cols to big, try again\n");
 		return -1;
 	}
+	printf("Your SMALL mat portion: rows_%d,cols_%d \n",rowSM,colSM);
+	
+}
+int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
+{
+	printf("Mat portion: rows_%d,cols_%d \n",ROWS,COLS);
+	if(bigMatChoose( rowBM,colBM)==-1)
+		return-1;
+	if(smallMatChoose( rowBM,colBM,rowSM,colSM)==-1)
+		return-1;
+	
+	printf("Your SMALL mat portion: rows_%d,cols_%d \n",rowSM,colSM);
 	return 0;
 	
 }
