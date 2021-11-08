@@ -9,60 +9,9 @@
 
 #define ROWS 5
 #define COLS 5
-int bigMatChoose(int* rowBM,int* colBM)
-{
-	printf("you need to tell me how many rows and cols you would like:  \n");
-	printf("ROWS:	");
-	scanf("%d",rowBM);
-	if(*rowBM > ROWS)
-	{
-		printf(" rows to big, try again\n");
-		return -1;
-	}
-	printf("COLS:	");
-	scanf("%d",colBM);
-	if(*colBM > COLS)
-	{
-		printf(" rows to big, try again\n");
-		return -1;
-	}
-	printf("Your big mat portion: rows_%d,cols_%d \n",*rowBM,*colBM);
-return 0;
-	
-}
-int smallMatChoose(int* rowBM,int* colBM,int* rowSM,int* colSM)
-{
-	printf("Now tell me the portion of the small mat you would like:  \n");
-	printf("ROWS:	");
-	scanf("%d",rowSM);
-	if(*rowSM >= *rowBM)
-	{
-		printf("small rows to big, try again\n");
-		return -1;
-	}
+#define COLOR 3
 
-	printf("COLS:	");
-	scanf("%d",colSM);
-	if(*colSM >= *colBM)
-	{
-		printf("small cols to big, try again\n");
-		return -1;
-	}
-	printf("Your SMALL mat portion: rows_%d,cols_%d \n",*rowSM,*colSM);
-return 0;
-	
-}
-int q1Menu(int* rowBM,int* colBM,int* rowSM,int* colSM)
-{
 
-	if(bigMatChoose( rowBM,colBM)==-1)
-		return-1;
-	if(smallMatChoose( rowBM,colBM,rowSM,colSM)==-1)
-		return-1;
-
-	return 0;
-	
-}
 void q1()
 {
 	//Solution1.h
@@ -70,8 +19,9 @@ void q1()
 	printf("you chose Q1, get ready to be amazed\n");
 	printf("Mat portion: rows_%d,cols_%d \n",ROWS,COLS);
 	int rowBM,colBM,rowSM,colSM;
-	while(q1Menu(&rowBM,&colBM,&rowSM,&colSM)==-1)
-{
+	while(Q1_Menu(&rowBM,&colBM,&rowSM,&colSM,ROWS,COLS)==-1)
+	{
+		//menu is running
 	}
 	int mat[ROWS][COLS];
 	initMatRand((int*) mat,  rowBM,  colBM);
@@ -84,8 +34,14 @@ void q1()
 
 void q2()
 {
-	//Solution2.h
-	printf("you chose Q2, your'e about to be sent to outter space\n");	
+	int mat[ROWS][COLS];
+	printf("Mat portion: rows_%d,cols_%d \n",ROWS,COLS);
+	initMatZero((int*) mat,  ROWS,  COLS);
+	printf("The color amount : %d \n",COLOR);
+	printf("the  mat:    \n");
+	printMat((int*) mat,  ROWS,  COLS);
+	//int startValues[COLOR][2];
+	
 }
 
 void q3()
