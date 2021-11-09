@@ -32,6 +32,7 @@ void q1()
 
 void q2()
 {
+	//Solution2.h
 	int mat[ROWS][COLS];
 	printf("Mat portion: rows_%d,cols_%d \n", ROWS, COLS);
 	initMatZero((int *)mat, ROWS, COLS);
