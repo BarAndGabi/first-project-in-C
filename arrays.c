@@ -143,4 +143,3 @@ int sumSmallMat(int *mat, int rows, int cols, int bigRows)
 		}
 	return sum;
 }
-

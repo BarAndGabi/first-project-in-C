@@ -55,44 +55,43 @@ int Q1_smallMatChoose(int *rowBM, int *colBM, int *rowSM, int *colSM)
 	return 0;
 }
 
-int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol,int* indexRow,int* indexCol)
+int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, int *indexRow, int *indexCol)
 {
 	int temp, currentSum;
 	currentSum = 0;
-        int row,col;
-        
+	int row, col;
+
 	for (int i = 0; i < BMrow - SMrow + 1; i++)
 	{
 		for (int j = 0; j < BMcol - SMcol + 1; j++)
 		{
 			temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);
 			if (currentSum < temp)
-			{       
-                                col=j;
-                                row=i;
+			{
+				col = j;
+				row = i;
 				currentSum = temp;
 			}
 			mat++;
 		}
-
 	}
-        
-        *indexCol=col;
-        *indexRow=row;
+
+	*indexCol = col;
+	*indexRow = row;
 	return currentSum;
 }
 
 int printSmallMat(int *mat, int rows, int cols, int bigRows)
-{ 
+{
 	int temp = 0;
 	for (int i = 0; i < rows; i++)
-{
+	{
 		for (int j = 0; j < cols; j++)
 		{
 			temp = *((mat + (bigRows * i) + j));
-			printf("%5d ",temp);
+			printf("%5d ", temp);
 		}
-	printf("\n");
-}
+		printf("\n");
+	}
 	return 0;
 }

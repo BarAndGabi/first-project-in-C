@@ -13,5 +13,4 @@ void initMatRand(int *mat, int rows, int cols);
 int sumSmallMat(int *mat, int rows, int cols, int bigRows);
 void initMatZero(int *mat, int rows, int cols);
 
-
 #endif

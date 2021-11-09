@@ -18,7 +18,7 @@ void q1()
 	printf("you chose Q1, get ready to be amazed\n");
 	printf("Mat portion: rows_%d,cols_%d \n", ROWS, COLS);
 	int rowBM, colBM, rowSM, colSM;
-        int indexOfRow,indexOfCol;
+	int indexOfRow, indexOfCol;
 	while (Q1_Menu(&rowBM, &colBM, &rowSM, &colSM, ROWS, COLS) == -1)
 	{
 		//menu is running
@@ -27,10 +27,9 @@ void q1()
 	initMatRand((int *)mat, rowBM, colBM);
 	printf("the big mat:    \n");
 	printMat((int *)mat, rowBM, colBM);
-	sum = Q1_doFindMaxSubMatrix((int *)mat, rowBM, colBM,rowSM, colSM,&indexOfRow,&indexOfCol);
-	printf("\n the sum is :   %d  \n and it starts in row index:%d\n and col index:%d\n", sum,indexOfRow,indexOfCol);
-        printSmallMat(((int *)mat)+(colSM*indexOfRow)+indexOfCol, rowSM, colSM, colBM);
-
+	sum = Q1_doFindMaxSubMatrix((int *)mat, rowBM, colBM, rowSM, colSM, &indexOfRow, &indexOfCol);
+	printf("\n the sum is :   %d  \n and it starts in row index:%d\n and col index:%d\n", sum, indexOfRow, indexOfCol);
+	printSmallMat(((int *)mat) + (colSM * indexOfRow) + indexOfCol, rowSM, colSM, colBM);
 }
 
 void q2()
