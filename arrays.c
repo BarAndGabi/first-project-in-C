@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <time.h>   
+#include <time.h>
 #include "arrays.h"
- 
-void	printArray(const int* arr, int size)
+
+void printArray(const int *arr, int size)
 {
 	int i;
 	for (i = 0; i < size; i++)
@@ -15,7 +15,7 @@ void	printArray(const int* arr, int size)
 
 	printf("\n");
 }
-void	printCharArray(const char* arr, int size)
+void printCharArray(const char *arr, int size)
 {
 	int i;
 	for (i = 0; i < size; i++)
@@ -25,9 +25,8 @@ void	printCharArray(const char* arr, int size)
 	}
 
 	printf("\n");
-
 }
-void	initArray(int* arr, int size)
+void initArray(int *arr, int size)
 {
 	int i;
 	printf("Please enter %d elements for array\n", size);
@@ -37,8 +36,8 @@ void	initArray(int* arr, int size)
 		arr++;
 	}
 }
- 
-void	initArrayChar(char* arr, int size)
+
+void initArrayChar(char *arr, int size)
 {
 	int i;
 	printf("Please enter %d elements for array\n", size);
@@ -48,9 +47,8 @@ void	initArrayChar(char* arr, int size)
 		arr++;
 	}
 }
- 
 
-void	printMat(const int* mat, int rows, int cols)
+void printMat(const int *mat, int rows, int cols)
 {
 	int i, j;
 	for (i = 0; i < rows; i++)
@@ -64,7 +62,7 @@ void	printMat(const int* mat, int rows, int cols)
 	}
 	printf("\n");
 }
-void	printMatChar(const char* mat, int rows, int cols)
+void printMatChar(const char *mat, int rows, int cols)
 {
 	int i, j;
 	for (i = 0; i < rows; i++)
@@ -79,11 +77,11 @@ void	printMatChar(const char* mat, int rows, int cols)
 	printf("\n");
 }
 
-void	initMat(int* mat, int rows, int cols)
+void initMat(int *mat, int rows, int cols)
 {
 	int i, j;
 
-	printf("Please enter %d numbers to matrix\n", cols*rows);
+	printf("Please enter %d numbers to matrix\n", cols * rows);
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
@@ -93,37 +91,37 @@ void	initMat(int* mat, int rows, int cols)
 		}
 	}
 }
-void	initMatRand(int* mat, int rows, int cols)
+void initMatRand(int *mat, int rows, int cols)
 {
 	int i, j;
-	srand ( time(NULL) ); // initialize random seed
+	srand(time(NULL)); // initialize random seed
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat=1 + (rand()%(5-(1)+1));
+			*mat = 1 + (rand() % (5 - (1) + 1));
 			mat++;
 		}
 	}
 }
-void	initMatZero(int* mat, int rows, int cols)
+void initMatZero(int *mat, int rows, int cols)
 {
 	int i, j;
-	srand ( time(NULL) ); // initialize random seed
+	srand(time(NULL)); // initialize random seed
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat=0;
+			*mat = 0;
 			mat++;
 		}
 	}
 }
-void	initMatChar(char* mat, int rows, int cols)
+void initMatChar(char *mat, int rows, int cols)
 {
 	int i, j;
 
-	printf("Please enter %d numbers to matrix\n", cols*rows);
+	printf("Please enter %d numbers to matrix\n", cols * rows);
 	for (i = 0; i < rows; i++)
 	{
 		for (j = 0; j < cols; j++)
@@ -133,20 +131,15 @@ void	initMatChar(char* mat, int rows, int cols)
 		}
 	}
 }
-int	sumSmallMat(int* mat, int rows, int cols,int bigRows)
-{//sums the smallmat within the big mat
-	int temp=0;
-	int sum=0;
-	for (int i=0;i<rows;i++)
-		for(int j=0;j<cols;j++)
+int sumSmallMat(int *mat, int rows, int cols, int bigRows)
+{ //sums the smallmat within the big mat
+	int temp = 0;
+	int sum = 0;
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < cols; j++)
 		{
-		temp=*((mat+(bigRows*i)+j));
-		sum=sum+temp;	
+			temp = *((mat + (bigRows * i) + j));
+			sum = sum + temp;
 		}
 	return sum;
 }
-
-
-
-
-
