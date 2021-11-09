@@ -26,27 +26,27 @@ int main()
 		{
 		case 'S':
 			q1();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 'C':
 			q2();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 'B':
 			q3();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 's':
 			q1();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 'c':
 			q2();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 'b':
 			q3();
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		case 'E':
 			printf("\nOkay  , bye \n");
@@ -58,7 +58,7 @@ int main()
 			break;
 		default:
 			printf("\nTry again, wrong input\n");
-			printf("Back to menu\n		.\n		.\n		.\n		.\n		.\n");
+			printf("	Back to menu\n		.\n		.\n		.\n		.\n		.\n");
 			break;
 		}
 	}
