@@ -82,14 +82,17 @@ int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol,i
 	return currentSum;
 }
 
-void printSmallMat(int* mat,int SMrow,int SMcol,int indexRow,int indexCol,int bigCols){
-    int temp;
-    for(int i=0;i<SMrow;i++){
-      for(int j=0;j<SMcol;j++){
-         temp=*(mat+(bigCols*indexRow+i)+j+indexCol);
-         printf("%5d",temp);
-      }
-      printf("\n");
-    }
-
+int printSmallMat(int *mat, int rows, int cols, int bigRows)
+{ 
+	int temp = 0;
+	for (int i = 0; i < rows; i++)
+{
+		for (int j = 0; j < cols; j++)
+		{
+			temp = *((mat + (bigRows * i) + j));
+			printf("%5d ",temp);
+		}
+	printf("\n");
+}
+	return 0;
 }
