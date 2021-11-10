@@ -68,7 +68,7 @@ int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, 
 		{	
 			if(j+SMcol<BMcol)
 			{
-			temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);
+			temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);//FUNC in arrays.c
 			if (currentSum < temp)
 			{
 				col = j;
