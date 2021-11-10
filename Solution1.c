@@ -63,29 +63,39 @@ int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, 
 
 	for (int i = 0; i < BMrow; i++)
 	{
-		if(i+SMrow<BMrow)
-		for (int j = 0; j < BMcol; j++)
-		{	
-			if(j+SMcol<BMcol)
+		if (i + SMrow < BMrow)
+			for (int j = 0; j < BMcol; j++)
 			{
-			temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);
-			if (currentSum < temp)
-			{
-				col = j;
-				row = i;
-				currentSum = temp;
+				if (j + SMcol < BMcol)
+				{
+					temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);
+					if (currentSum < temp)
+					{
+						col = j;
+						row = i;
+						currentSum = temp;
+					}
+				}
+				mat++;
 			}
-			}
-			mat++;
-
-		}
 	}
 
 	*indexCol = col;
 	*indexRow = row;
 	return currentSum;
 }
-
+int sumSmallMat(int *mat, int rows, int cols, int bigRows)
+{ //sums the smallmat within the big mat
+	int temp = 0;
+	int sum = 0;
+	for (int i = 0; i < rows; i++)
+		for (int j = 0; j < cols; j++)
+		{
+			temp = *((mat + (bigRows * i) + j));
+			sum = sum + temp;
+		}
+	return sum;
+}
 int printSmallMat(int *mat, int rows, int cols, int bigRows)
 {
 	int temp = 0;
