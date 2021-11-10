@@ -29,7 +29,7 @@ void q1()
 	printMat((int *)mat, rowBM, colBM);
 	sum = Q1_doFindMaxSubMatrix((int *)mat, rowBM, colBM, rowSM, colSM, &indexOfRow, &indexOfCol);
 	printf("\n the sum is :   %d  \n and it starts in row index:%d\n and col index:%d\n", sum, indexOfRow, indexOfCol);
-	printSmallMat(((int *)mat) + (colSM * indexOfRow) + indexOfCol, rowSM, colSM, colBM);
+	printSmallMat(((int *)mat) + (colBM * indexOfRow) + indexOfCol, rowSM, colSM, colBM);
 }
 
 void q2()
