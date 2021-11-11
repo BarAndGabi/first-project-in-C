@@ -38,7 +38,7 @@ int Q1_smallMatChoose(int *rowBM, int *colBM, int *rowSM, int *colSM)
 	printf("Now tell me the portion of the small mat you would like:  \n");
 	printf("ROWS:	");
 	scanf("%d", rowSM);
-	if (*rowSM >= *rowBM)
+	if (*rowSM > *rowBM)
 	{
 		printf("small rows to big, try again\n");
 		return -1;
@@ -46,7 +46,7 @@ int Q1_smallMatChoose(int *rowBM, int *colBM, int *rowSM, int *colSM)
 
 	printf("COLS:	");
 	scanf("%d", colSM);
-	if (*colSM >= *colBM)
+	if (*colSM > *colBM)
 	{
 		printf("small cols to big, try again\n");
 		return -1;
@@ -63,22 +63,21 @@ int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, 
 
 	for (int i = 0; i < BMrow; i++)
 	{
-		if(i+SMrow<BMrow)
-		for (int j = 0; j < BMcol; j++)
-		{	
-			if(j+SMcol<BMcol)
+		if (i + SMrow < BMrow)
+			for (int j = 0; j < BMcol; j++)
 			{
-			temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol);//FUNC in arrays.c
-			if (currentSum < temp)
-			{
-				col = j;
-				row = i;
-				currentSum = temp;
+				if (j + SMcol < BMcol)
+				{
+					temp = sumSmallMat((int *)mat, SMrow, SMcol, BMcol); //FUNC in arrays.c
+					if (currentSum < temp)
+					{
+						col = j;
+						row = i;
+						currentSum = temp;
+					}
+				}
+				mat++;
 			}
-			}
-			mat++;
-
-		}
 	}
 
 	*indexCol = col;
