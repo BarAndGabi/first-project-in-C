@@ -1,6 +1,9 @@
 #include <stdio.h>
-#include "exe.h"
-
+#include "arrays.h"
+#include "Solution1.h"
+#include "Solution2.h"
+#include "Solution3.h"
+#include "Utill.h"
 void menuAndChoise(char *cP)
 {
 	printf("Choose one of the folloeing options : \n");

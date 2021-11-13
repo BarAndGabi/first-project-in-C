@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "arrays.h"
+#include "Utill.h"
 
 void printArray(const int *arr, int size)
 {
@@ -99,7 +100,7 @@ void initMatRand(int *mat, int rows, int cols)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat = 1 + (rand() % (5 - (1) + 1));
+			*mat = getRand( 1,5);
 			mat++;
 		}
 	}
