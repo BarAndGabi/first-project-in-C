@@ -9,7 +9,7 @@ void intSwap(int *pa, int *pb)
 {
     int temp = *pa;
     *pa = *pb;
-    *pb = temp;
+    *pb = temp;//TRY
 }
 int getRand(int min,int max){
     return min + (rand() % (max - (min) + 1));
