@@ -6,41 +6,36 @@
 #define ROWS 5
 #define COLS 5
 #define COLOR 3
-int checkIfPointExist(startValues,row,col)
+int checkIfPointExist(startValues, row, col)
 {
-
 }
 
 void initStartValues(int *startValues)
 {
 	for (int i = 0; i < COLOR; i++)
 	{
-		
+
 		int row = getRand(0, ROWS - 1);
 		int col = getRand(0, COLS - 1);
-		while(checkIfPointExist(startValues,row,col)==1)
+		while (checkIfPointExist(startValues, row, col) == 1)
 		{
 			row = getRand(0, ROWS - 1);
-			 col = getRand(0, COLS - 1);
+			col = getRand(0, COLS - 1);
 		}
 		int *pointerRow = startValues + (COLS * i) + 0;
 		int *pointerCol = startValues + (COLS * i) + 1;
 		*pointerRow = row;
 		*pointerCol = col;
-		
-
 	}
-	
-		
 }
 void printStartValues(int *startValues)
 {
-	for (int i =0; i <COLOR; i++)
+	for (int i = 0; i < COLOR; i++)
 	{
 		int *pointerRow = startValues + (COLS * i) + 0;
 		int *pointerCol = startValues + (COLS * i) + 1;
 
-		printf("color number [[%d]] starts :\n\trow --%d--\n\tcol --%d--\n", (i+1), *pointerRow, *pointerCol);
+		printf("color number [[%d]] starts :\n\trow --%d--\n\tcol --%d--\n", (i + 1), *pointerRow, *pointerCol);
 	}
 }
 void q2()
