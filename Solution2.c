@@ -8,17 +8,13 @@
 #define COLOR 3
 int checkIfPointExist(startValues, row, col)
 {
-    int check;
 		for(int j=0;j<COLOR;j++){
 			int checkRow=*(startValues+j*2);
 			int checkCol=*(startValues+j*2+1);
 			if(checkRow==row&&checkRowCol==col){
-               check=0;
+               return 0;
 			}
 		}
-		if(check=0)
-		return 0;
-		else
 		return 1;
 	}
 
