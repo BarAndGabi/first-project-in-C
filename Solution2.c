@@ -8,57 +8,54 @@
 #define COLOR 3
 #define VALUESCOL 2
 
-int expandRows (int *mat,int row,int col,int color ,int round)
+int expandRows(int *mat, int row, int col, int color, int round)
 {
-	int counter=0;
-	int coloredMatSize=3+((round-1)*2);
-	for(int i=col;i<coloredMatSize+col;i++)
+	int counter = 0;
+	int coloredMatSize = 3 + ((round - 1) * 2);
+	for (int i = col; i < coloredMatSize + col; i++)
 	{
-		if(i>=0)
+		if (i >= 0)
 		{
-			int* currentPointer=mat+(row*COLS)+i;
-			if(*currentPointer==0)
+			int *currentPointer = mat + (row * COLS) + i;
+			if (*currentPointer == 0)
 			{
-				*currentPointer=color;
+				*currentPointer = color;
 				counter++;
-			}	
-				
+			}
 		}
 	}
 	return counter;
 }
-int expandCols (int *mat,int row,int col,int color ,int round)
+int expandCols(int *mat, int row, int col, int color, int round)
 {
-	int counter=0;
-	int coloredMatSize=3+((round-1)*2);
-	for(int i=row+1;i<coloredMatSize-1+row;i++)
+	int counter = 0;
+	int coloredMatSize = 3 + ((round - 1) * 2);
+	for (int i = row + 1; i < coloredMatSize - 1 + row; i++)
 	{
-		if(i>=0)
+		if (i >= 0)
 		{
-			int* currentPointer=mat+(i*COLS)+col;
-			if(*currentPointer==0)
+			int *currentPointer = mat + (i * COLS) + col;
+			if (*currentPointer == 0)
 			{
-				*currentPointer=color;
+				*currentPointer = color;
 				counter++;
-			}	
+			}
 		}
 	}
 	return counter;
 }
 
-int expandColor(int *mat,int row,int col,int color, int round)
+int expandColor(int *mat, int row, int col, int color, int round)
 {
-	row=row-round;
-	col=col-round;
-	int counter=0;
-	int coloredMatSize=3+((round-1)*2);
-	counter+=expandRows( mat, row, col, color,round);//expand row above
-	counter+=expandRows( mat, row+coloredMatSize-1, col, color,round);//expand row under
-	counter+=expandCols( mat, row, col, color,round);//expand left col 
-	counter+=expandCols( mat, row, col+coloredMatSize-1, color,round);//expand RIGHT COL 
+	row = row - round;
+	col = col - round;
+	int counter = 0;
+	int coloredMatSize = 3 + ((round - 1) * 2);
+	counter += expandRows(mat, row, col, color, round);						 //expand row above
+	counter += expandRows(mat, row + coloredMatSize - 1, col, color, round); //expand row under
+	counter += expandCols(mat, row, col, color, round);						 //expand left col
+	counter += expandCols(mat, row, col + coloredMatSize - 1, color, round); //expand RIGHT COL
 	return counter;
-
-
 }
 
 void colorStartPoints(int *mat, int *startValues)
@@ -90,8 +87,8 @@ int checkIfPointExist(int *startValues, int row, int col, int i)
 
 void initStartValues(int *startValues)
 {
-		int row = 2;
-		int col = 2;
+	int row = 2;
+	int col = 2;
 	for (int i = 0; i < COLOR; i++)
 	{
 
@@ -144,7 +141,7 @@ void q2()
 	initStartValues((int *)startValues);
 	printStartValues((int *)startValues);
 	colorStartPoints((int *)mat, (int *)startValues);
-	printf("\n\n%d\n",expandColor( (int *)mat,2,2,1, 1));
+	printf("\n\n%d\n", expandColor((int *)mat, 2, 2, 1, 1));
 	printMat((int *)mat, ROWS, COLS);
 	//colorTheBoard((int*)mat,(int *)startValues);
 }

@@ -100,7 +100,7 @@ void initMatRand(int *mat, int rows, int cols)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat = getRand( 1,5);
+			*mat = getRand(1, 5);
 			mat++;
 		}
 	}
