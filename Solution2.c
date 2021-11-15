@@ -31,8 +31,8 @@ void initStartValues(int *startValues)
 			row = getRand(0, ROWS - 1);
 			col = getRand(0, COLS - 1);
 		}
-		int *pointerRow = startValues + (COLS * i) + 0;
-		int *pointerCol = startValues + (COLS * i) + 1;
+		int *pointerRow = startValues + (2 * i) + 0;
+		int *pointerCol = startValues + (2 * i) + 1;
 		*pointerRow = row;
 		*pointerCol = col;
 	}
@@ -41,11 +41,16 @@ void printStartValues(int *startValues)
 {
 	for (int i = 0; i < COLOR; i++)
 	{
-		int *pointerRow = startValues + (COLS * i) + 0;
-		int *pointerCol = startValues + (COLS * i) + 1;
-
+		int *pointerRow = startValues + (2 * i) + 0;
+		int *pointerCol = startValues + (2 * i) + 1;
 		printf("color number [[%d]] starts :\n\trow --%d--\n\tcol --%d--\n", (i + 1), *pointerRow, *pointerCol);
 	}
+}
+
+
+int expandColor(int* mat,int matRow,int matCol,int pointerRow,int pointerCol,int colorNum,int turnNum){
+
+
 }
 void q2()
 {
