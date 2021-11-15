@@ -2,5 +2,12 @@
 #define SOLUTION2_H_
 
 void q2();
+void colorStartPoints(int *mat, int *startValues);
+int checkIfPointExist(int *startValues, int row, int col, int i);
+void initStartValues(int *startValues);
+void printStartValues(int *startValues);
+int checkColorAmount();
+int expandRows (int *mat,int row,int col,int color ,int round);
+int expandRows (int *mat,int row,int col,int color ,int round);
 
 #endif
