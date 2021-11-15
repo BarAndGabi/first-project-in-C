@@ -4,8 +4,8 @@
 #include <stdio.h>
 
 #define ROWS 5
-#define COLS 5
-#define COLOR 3
+#define COLS 6
+#define COLOR 2
 #define VALUESCOL 2
 
 int expandRows(int *mat, int row, int col, int color, int round)
@@ -14,7 +14,7 @@ int expandRows(int *mat, int row, int col, int color, int round)
 	int coloredMatSize = 3 + ((round - 1) * 2);
 	for (int i = col; i < coloredMatSize + col; i++)
 	{
-		if (i >= 0)
+		if (i >= 0&&i<COLS)
 		{
 			int *currentPointer = mat + (row * COLS) + i;
 			if (*currentPointer == 0)
@@ -30,9 +30,9 @@ int expandCols(int *mat, int row, int col, int color, int round)
 {
 	int counter = 0;
 	int coloredMatSize = 3 + ((round - 1) * 2);
-	for (int i = row + 1; i < coloredMatSize - 1 + row; i++)
+	for (int i = row ; i < coloredMatSize  + row; i++)
 	{
-		if (i >= 0)
+		if (i >= 0&&i<ROWS)
 		{
 			int *currentPointer = mat + (i * COLS) + col;
 			if (*currentPointer == 0)
@@ -51,10 +51,14 @@ int expandColor(int *mat, int row, int col, int color, int round)
 	col = col - round;
 	int counter = 0;
 	int coloredMatSize = 3 + ((round - 1) * 2);
-	counter += expandRows(mat, row, col, color, round);						 //expand row above
-	counter += expandRows(mat, row + coloredMatSize - 1, col, color, round); //expand row under
-	counter += expandCols(mat, row, col, color, round);						 //expand left col
-	counter += expandCols(mat, row, col + coloredMatSize - 1, color, round); //expand RIGHT COL
+	if(row>=0)
+		counter += expandRows(mat, row, col, color, round); //expand row above
+	if(row + coloredMatSize-1<ROWS)
+		counter += expandRows(mat, row + coloredMatSize -1, col, color, round); //expand row under
+	if(col>=0)
+		counter += expandCols(mat, row, col, color, round); //expand left col
+	if(col + coloredMatSize-1<COLS)
+		counter += expandCols(mat, row, col + coloredMatSize-1, color, round); //expand RIGHT COL
 	return counter;
 }
 
@@ -87,13 +91,11 @@ int checkIfPointExist(int *startValues, int row, int col, int i)
 
 void initStartValues(int *startValues)
 {
-	int row = 2;
-	int col = 2;
+
 	for (int i = 0; i < COLOR; i++)
 	{
-
-		//int row = getRand(0, ROWS - 1);
-		//int col = getRand(0, COLS - 1);
+		int row = getRand(0, ROWS - 1);
+		int col = getRand(0, COLS - 1);
 		while (checkIfPointExist((int *)startValues, row, col, i + 1) == 0)
 		{
 			row = getRand(0, ROWS - 1);
@@ -123,7 +125,37 @@ int checkColorAmount()
 		return 0;
 	return 1;
 }
+void colorTheBoard(int *mat, int *startValues)
+{
+	int round = 1;
+	int counter = 3;
+	while (round<=COLS||round<=ROWS)
+	{	
+		for (int color = 0; color < COLOR; color++)
+		{
+			int *pointerRow = startValues + (VALUESCOL * color) + 0;
+			int *pointerCol = startValues + (VALUESCOL * color) + 1;
+			counter = counter + expandColor((int *)mat, *pointerRow, *pointerCol, color+1, round);
+		}
+		printf("ROUND -%d-    \n", round);
+		printMat((int *)mat, ROWS, COLS);
+		if(counter>COLS*ROWS)
+			break;
+		round++;
+	}
 
+}
+void q2SetUP( int* mat,int* startValues)
+{
+	printf("Mat portion: rows_%d,cols_%d \n", ROWS, COLS);
+	initMatZero(mat, ROWS, COLS);
+	printf("The color amount : %d \n", COLOR);
+	printf("the  mat:    \n");
+	printMat(mat, ROWS, COLS);
+	initStartValues(startValues);
+	printStartValues(startValues);
+	colorStartPoints((int *)mat, (int *)startValues);
+}
 void q2()
 {
 	if (checkColorAmount() == 0)
@@ -131,17 +163,8 @@ void q2()
 		printf("Too much colors for the mat");
 		return;
 	}
-	int mat[ROWS][COLS];
-	printf("Mat portion: rows_%d,cols_%d \n", ROWS, COLS);
-	initMatZero((int *)mat, ROWS, COLS);
-	printf("The color amount : %d \n", COLOR);
-	printf("the  mat:    \n");
-	printMat((int *)mat, ROWS, COLS);
 	int startValues[COLOR][2];
-	initStartValues((int *)startValues);
-	printStartValues((int *)startValues);
-	colorStartPoints((int *)mat, (int *)startValues);
-	printf("\n\n%d\n", expandColor((int *)mat, 2, 2, 1, 1));
-	printMat((int *)mat, ROWS, COLS);
-	//colorTheBoard((int*)mat,(int *)startValues);
+	int mat[ROWS][COLS];
+	q2SetUP((int*)mat,(int *)startValues);
+	colorTheBoard((int*)mat,(int *)startValues);
 }
