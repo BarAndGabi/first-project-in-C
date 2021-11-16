@@ -3,8 +3,8 @@
 #include "arrays.h"
 #include <stdio.h>
 
-#define ROWS 5
-#define COLS 6
+#define ROWS 10
+#define COLS 10
 #define COLOR 3
 #define VALUESCOL 2
 
@@ -113,15 +113,14 @@ void colorTheBoard( int* mat,int matRow,int matCol,int* startValues,int colors){
     int sum,turnNum;
     turnNum=1;
 while(sum<(matRow*matCol-colors)){
-     for(int i=1;i<=colors;i++){
+        printf("\nthe turn is:%d\n",turnNum);
+     for(int i=0;i<colors;i++){
         int startRow=*(startValues+VALUESCOL*i);
         int startCol=*(startValues+VALUESCOL*i+1);  
-        sum=sum+expandColor((int*) mat,matRow,matCol,startRow,startCol,i,turnNum);
-  } 
-  printMat((int *)mat, matRow, matCol);
-  printf("\nthe turn is:%d",turnNum);
-  turnNum++;
-    
+        sum=sum+expandColor((int*) mat,matRow,matCol,startRow,startCol,i+1,turnNum);
+        }
+        printMat((int *)mat, matRow, matCol);
+        turnNum++;
     }
 }
 void q2()
@@ -142,7 +141,9 @@ void q2()
 	initStartValues((int *)startValues);
 	printStartValues((int *)startValues);
 	colorStartPoints((int*)mat,(int *)startValues);
-
+        //int startRow=*(startValues+VALUESCOL*0);
+        //int counter=int expandColor((int*) mat,ROWS,COLS,startRow,int startCol,int colorNum,int turnNum);
+        colorTheBoard((int*) mat,ROWS,COLS,(int*) startValues,COLOR);
 	//colorTheBoard((int*)mat,(int *)startValues);
 
 }
