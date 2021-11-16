@@ -44,7 +44,6 @@ int expandCols(int *mat, int row, int col, int color, int round)
 	}
 	return counter;
 }
-
 int expandColor(int *mat, int row, int col, int color, int round)
 {
 	row = row - round;
@@ -61,7 +60,6 @@ int expandColor(int *mat, int row, int col, int color, int round)
 		counter += expandCols(mat, row, col + coloredMatSize - 1, color, round); //expand RIGHT COL
 	return counter;
 }
-
 void colorStartPoints(int *mat, int *startValues)
 {
 	for (int i = 0; i < COLOR; i++)
@@ -74,7 +72,6 @@ void colorStartPoints(int *mat, int *startValues)
 	printf("\nthe  mat firsts painted:    \n");
 	printMat((int *)mat, ROWS, COLS);
 }
-
 int checkIfPointExist(int *startValues, int row, int col, int i)
 {
 	for (int j = 0; j < i; j++)
@@ -88,7 +85,6 @@ int checkIfPointExist(int *startValues, int row, int col, int i)
 	}
 	return 1;
 }
-
 void initStartValues(int *startValues)
 {
 
@@ -118,7 +114,6 @@ void printStartValues(int *startValues)
 		printf("color number [[%d]] starts :\n\trow --%d--\n\tcol --%d--\n", (i + 1), *pointerRow, *pointerCol);
 	}
 }
-
 int checkColorAmount()
 {
 	if (COLOR > COLS * ROWS)
