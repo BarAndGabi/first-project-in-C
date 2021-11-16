@@ -16,9 +16,9 @@ void q3SetUp(int *mat, int *leftNums)
 void printAnswer(int answerBool)
 {
 	if(answerBool==0)
-		printf("\n--------ANSWER IS FALSE--------\n")
+		printf("\n--------ANSWER IS FALSE--------\n");
 	else
-		printf("\n--------ANSWER IS TRUE--------\n")
+		printf("\n--------ANSWER IS TRUE--------\n");
 
 }
 void q3()
