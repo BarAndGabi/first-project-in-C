@@ -102,7 +102,6 @@ int printSmallMat(int *mat, int rows, int cols, int bigRows)
 }
 void q1()
 {
-	//Solution1.h
 	int sum = 0;
 	printf("you chose Q1, get ready to be amazed\n");
 	printf("Mat portion: rows_%d,cols_%d \n", ROWS, COLS);
