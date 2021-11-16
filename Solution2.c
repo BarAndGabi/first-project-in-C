@@ -30,7 +30,7 @@ int expandCols(int *mat, int row, int col, int color, int round)
 {
 	int counter = 0;
 	int coloredMatSize = 3 + ((round - 1) * 2);
-	for (int i = row; i < coloredMatSize + row; i++)
+	for (int i = row + 1; i < coloredMatSize + row - 1; i++)
 	{
 		if (i >= 0 && i < ROWS)
 		{
@@ -123,7 +123,7 @@ int checkColorAmount()
 void colorTheBoard(int *mat, int *startValues)
 {
 	int round = 1;
-	int counter = 3;//3 slots have been painted at start.
+	int counter = 3; //3 slots have been painted.
 	while (round <= COLS || round <= ROWS)
 	{
 		for (int color = 0; color < COLOR; color++)
@@ -132,7 +132,7 @@ void colorTheBoard(int *mat, int *startValues)
 			int *pointerCol = startValues + (VALUESCOL * color) + 1;
 			counter = counter + expandColor((int *)mat, *pointerRow, *pointerCol, color + 1, round);
 		}
-		printf("ROUND  _--%d--_   \n", round);
+		printf("ROUND -%d-    \n", round);
 		printMat((int *)mat, ROWS, COLS);
 		if (counter > COLS * ROWS)
 			break;
