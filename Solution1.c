@@ -3,7 +3,6 @@
 #include "arrays.h"
 #include <stdio.h>
 
-
 #define ROWS 5
 #define COLS 5
 
@@ -58,7 +57,6 @@ int Q1_smallMatChoose(int *rowBM, int *colBM, int *rowSM, int *colSM)
 	printf("Your SMALL mat portion: rows_%d,cols_%d \n", *rowSM, *colSM);
 	return 0;
 }
-
 int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, int *indexRow, int *indexCol)
 {
 	int temp, currentSum;
@@ -88,7 +86,6 @@ int Q1_doFindMaxSubMatrix(int *mat, int BMrow, int BMcol, int SMrow, int SMcol, 
 	*indexRow = row;
 	return currentSum;
 }
-
 int printSmallMat(int *mat, int rows, int cols, int bigRows)
 {
 	int temp = 0;

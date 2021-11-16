@@ -100,7 +100,7 @@ void initMatRand(int *mat, int rows, int cols)
 	{
 		for (j = 0; j < cols; j++)
 		{
-			*mat = getRand( 1,5);
+			*mat = getRand(1, 5);
 			mat++;
 		}
 	}
@@ -133,7 +133,7 @@ void initMatChar(char *mat, int rows, int cols)
 	}
 }
 int sumSmallMat(int *mat, int rows, int cols, int bigRows)
-{ //sums the smallmat within the big mat
+{ //sums the small mat within the big mat
 	int temp = 0;
 	int sum = 0;
 	for (int i = 0; i < rows; i++)
