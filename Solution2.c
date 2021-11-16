@@ -78,7 +78,6 @@ int checkColorAmount()
 
 int expandColor(int* mat,int matRow,int matCol,int startRow,int startCol,int colorNum,int turnNum){
     int upRow,downRow,leftCol,rightCol,counter;
-	counter=0;
     upRow=startRow-turnNum;
     downRow=startRow+turnNum;
     leftCol=startCol-turnNum;
@@ -116,8 +115,9 @@ while(sum<(matRow*matCol-colors)){
      for(int i=1;i<=colors;i++){
         int startRow=*(startValues+VALUESCOL*i);
         int startCol=*(startValues+VALUESCOL*i+1);  
-        sum=sum+expandColor((int*) mat,matRow,matCol,startRow,startCol,i,turnNum);
+  sum=sum+expandColor((int*) mat,matRow,matCol,startRow,startCol,i,turnNum);
   } 
+
   printMat((int *)mat, matRow, matCol);
   printf("\nthe turn is:%d",turnNum);
   turnNum++;
@@ -142,7 +142,7 @@ void q2()
 	initStartValues((int *)startValues);
 	printStartValues((int *)startValues);
 	colorStartPoints((int*)mat,(int *)startValues);
-
+        printMat((int *)mat, ROWS, COLS);
 	//colorTheBoard((int*)mat,(int *)startValues);
 
 }
