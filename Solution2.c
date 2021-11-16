@@ -123,7 +123,7 @@ int checkColorAmount()
 void colorTheBoard(int *mat, int *startValues)
 {
 	int round = 1;
-	int counter = 3;
+	int counter = 3;//3 slots have been painted.
 	while (round <= COLS || round <= ROWS)
 	{
 		for (int color = 0; color < COLOR; color++)
