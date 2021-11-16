@@ -132,7 +132,7 @@ void colorTheBoard(int *mat, int *startValues)
 			int *pointerCol = startValues + (VALUESCOL * color) + 1;
 			counter = counter + expandColor((int *)mat, *pointerRow, *pointerCol, color + 1, round);
 		}
-		printf("ROUND [%d-]     \n", round);
+		printf("ROUND  _--%d--_   \n", round);
 		printMat((int *)mat, ROWS, COLS);
 		if (counter > COLS * ROWS)
 			break;
