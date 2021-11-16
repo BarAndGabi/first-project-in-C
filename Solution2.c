@@ -75,23 +75,27 @@ int checkColorAmount()
 int expandColor(int *mat, int matRow, int matCol, int startRow, int startCol, int colorNum, int turnNum)
 {
 	int upRow, downRow, leftCol, rightCol, counter;
+        
+        counter=0;
 	upRow = startRow - turnNum;
 	downRow = startRow + turnNum;
 	leftCol = startCol - turnNum;
 	rightCol = startCol + turnNum;
-	if (upRow < 0)
+      
+
+	if (upRow <= 0)
 	{
 		upRow = 0;
 	}
-	else if (downRow > matRow)
+	 if (downRow >= matRow)
 	{
 		downRow = matRow;
 	}
-	else if (leftCol < 0)
+        if (leftCol <= 0)
 	{
 		leftCol = 0;
 	}
-	else if (rightCol > matCol)
+	if (rightCol >= matCol)
 	{
 		rightCol = matCol;
 	}
@@ -113,13 +117,14 @@ void colorTheBoard(int *mat, int matRow, int matCol, int *startValues, int color
 {
 	int sum, turnNum;
 	turnNum = 1;
-	while (sum < (matRow * matCol - colors))
+        sum=0;
+	while (sum < (matRow * matCol - colors)||turnNum<=matRow||turnNum<=matCol)
 	{
-		printf("\nthe turn is:%d", turnNum);
+		printf("\nthe turn is:%d\n", turnNum);
 		for (int i = 0; i < colors; i++)
 		{
 			int startRow = *(startValues + VALUESCOL * i);
-			int startCol = *(startValues + VALUESCOL * i + 1);
+			int startCol = *(startValues + (VALUESCOL * i) + 1);
 			sum = sum + expandColor((int *)mat, matRow, matCol, startRow, startCol, i + 1, turnNum);
 		}
 		printMat((int *)mat, matRow, matCol);
@@ -143,5 +148,6 @@ void q2()
 	int startValues[COLOR][2];
 	initStartValues((int *)startValues);
 	printStartValues((int *)startValues);
-	colorTheBoard((int*)maat,ROWS,COLS,(int*)startValues,COLOR);
+        colorStartPoints((int *)mat,( int *)startValues);
+	colorTheBoard((int*)mat,ROWS,COLS,(int*)startValues,COLOR);
 }
