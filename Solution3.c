@@ -5,6 +5,7 @@
 
 #define ROWS 5
 #define COLS 5
+#define LEFTCOLS ((COLS + 1) / 2)
 
 void q3SetUp(int *mat, int *leftNums)
 {
@@ -15,11 +16,40 @@ void q3SetUp(int *mat, int *leftNums)
 }
 void printAnswer(int answerBool)
 {
-	if(answerBool==0)
+	if (answerBool == 0)
 		printf("\n--------ANSWER IS FALSE--------\n");
 	else
 		printf("\n--------ANSWER IS TRUE--------\n");
+}
 
+int checkRow(int *row, int *leftNumsRow)
+{
+	for(int i=0;i<((COLS + 1) / 2);i++)
+{
+}
+
+return 0;
+}
+
+void printRow(int *row, int *leftNumsRow)
+{
+	printf("\nrow is :    ");
+	printArray(row, COLS);
+	printf("\nLEFFNUMS is :    ");
+	printArray(leftNumsRow, ((COLS + 1) / 2));
+	printf("\n");
+	
+}
+
+int checkBoard(int *mat, int *leftNums)
+{
+	for (int row = 0; row < ROWS; row++)
+	{
+		printRow(mat + (row * COLS), leftNums + (row * ((COLS + 1) / 2))); checked row send (its good).
+		if (0 == checkRow(mat + (row * COLS), leftNums + (row * COLS)))
+			return 0;
+	}
+	return 1;
 }
 void q3()
 {
