@@ -55,6 +55,8 @@ int checkUntilZero(int *row, int currentLenth, int start)
 			}
 		}
 	}
+	if (switchOn == 0)
+		return -1;
 	return start + 1;
 }
 int checkRow(int *row, int *leftNumsRow)
