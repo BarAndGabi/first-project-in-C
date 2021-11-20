@@ -23,41 +23,57 @@ void printAnswer(int answerBool)
 }
 int checkUntilZero(int *row, int currentLenth, int start)
 {
-
-	int switchOn = 0;
-	int currentValue = 0;
-	int counterBlack = 0;
-	if (currentLenth == counterBlack)
+	if(currentLenth==0)
 		return start;
-	else
+	int counterBlack=0;
+	for(int i=start;i<COLS;i++)
 	{
-		for (int i = start; i < COLS; i++)
+		int currentValue=*(row+i);
+		if(counterBlack==currentLenth)
+				{
+		printf("\n%d ) ====> \ncurrentValue =====> %d\n",i,currentValue);
+return i ;
+}
+		if(currentValue==0)
 		{
-			currentValue = *(row + i);
-			if (currentValue == 1)
-			{
-				switchOn = 1;
-				counterBlack = counterBlack + 1;
-				if (counterBlack > currentLenth)
-				{
-					return -1;
-				}
-			}
-			else
-			{
-				if (switchOn == 1)
-				{
-					if (counterBlack < currentLenth)
-						return -1;
-					else
-						return i;
-				}
-			}
+			if(counterBlack==currentLenth)
+				return i;
+			if(counterBlack>currentLenth)
+				return -1;
+			if(counterBlack<currentLenth&&counterBlack>0)
+				return -1;
 		}
+		else
+		{
+		printf("\n%d ) ====> \ncurrentValue =====> %d\n",currentLenth,currentValue);
+			if(counterBlack<currentLenth&&counterBlack>=0)
+				counterBlack++;
+			if(counterBlack>currentLenth)
+				return -1;
+			if(counterBlack==currentLenth)
+				return i+1;
+		}
+
 	}
-	if (switchOn == 0)
+	if(counterBlack==0)
+		return start;
+	if(counterBlack==currentLenth)
+		return COLS;
+	if(counterBlack<currentLenth||counterBlack>currentLenth)
 		return -1;
-	return start + 1;
+
+return start;
+	
+}
+int checkRowZero(int* row) 
+{
+	for(int col=0;col<COLS;col++)
+	{
+		int currentValue=*(row+col);
+		if(currentValue!=0)
+			return -1;
+	}
+	return 1;
 }
 int checkRow(int *row, int *leftNumsRow)
 {
@@ -65,21 +81,37 @@ int checkRow(int *row, int *leftNumsRow)
 	int temp = 0;
 	for (int col = 0; col < ((COLS + 1) / 2); col++)
 	{
-		if (start != -1)
-		{
-
-			int *current = leftNumsRow + col;
-			int currentLenth = *current;
-			temp = checkUntilZero(row, currentLenth, start);
-			start = temp;
-		}
-		else
+		int *current = leftNumsRow + col;
+		int currentLenth = *current;
+		printf("\n%d ) ====> \nSTART IS =====> %d\n",col+1,start);
+		temp = checkUntilZero(row, currentLenth, start);
+		if (temp == -1)
 		{
 			return 0;
 		}
+		if(temp ==COLS)
+			return 1;
+		start = temp;
+		
 	}
-
-	return 1;
+	if (start != -1)
+	{	
+		if(start==0)
+		{
+			if(checkRowZero(row)>0)
+				return 1;
+			else
+				return 0;
+		}
+		if(start==temp)
+			return 0;
+		else
+			return 1;
+	}
+	else	
+	{
+		return 0;
+	}	
 }
 void printRow(int *row, int *leftNumsRow)
 {
@@ -102,8 +134,8 @@ int checkBoard(int *mat, int *leftNums)
 void q3()
 {
 	printf("houston we have a problem  the user chose Q3\n");
-	int mat[ROWS][COLS] = {{1, 1, 1, 1, 1}, {1, 0, 1, 0, 1}, {0, 1, 1, 1, 0}, {1, 1, 0, 1, 1}, {1, 1, 1, 1, 1}};
-	int leftNums[ROWS][(COLS + 1) / 2] = {{0, 1, 5}, {1, 1, 1}, {0, 3, 0}, {0, 2, 2}, {0, 0, 5}};
+	int mat[ROWS][COLS] = {{0,0,0,0,1}, {0,0,0,0,1}, {0, 1, 1, 1, 0}, {1, 1, 0, 1, 1}, {1, 1, 1, 1, 1}};
+	int leftNums[ROWS][(COLS + 1) / 2] = {{0,0,1}, {0, 0, 1}, {3,0,1}, {0, 2, 2}, {0, 0, 5}};
 	q3SetUp((int *)mat, (int *)leftNums);
 	int answerBool = checkBoard((int *)mat, (int *)leftNums);
 	printAnswer(answerBool);
