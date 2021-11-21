@@ -7,5 +7,7 @@ int checkUntilZero(int *row, int currentLenth, int start);
 int checkRow(int *row, int *leftNumsRow);
 void printRow(int *row, int *leftNumsRow);
 int checkBoard(int *mat, int *leftNums);
+int checkZeroCases(int *row, int *colIndex);
+int checkRowColor(int *row, int currentLenth, int *colIndex, int *blackCounter)
 
 #endif
