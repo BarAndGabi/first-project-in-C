@@ -19,7 +19,6 @@ int checkRowZero(int *row, int size)
 }
 int checkZeroCases(int *row, int *colIndex)
 {
-
 	if (*colIndex % COLS == 0)
 		while (*row == 0)
 		{
